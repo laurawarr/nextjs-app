@@ -26,7 +26,7 @@ export const TextInputForm = ({
   displayName,
   buttonText = 'Save'
 }: TextInputFormProps) => {
-  const initialValue = useStorageValue(property) ?? ''
+  const { data: initialValue = '' } = useStorageValue(property)
   const { mutate: updateStoredValue } = useStorageSetter(property)
   const [value, setValue] = useState(initialValue)
   const [error, setError] = useState<string | undefined>()

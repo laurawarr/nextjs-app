@@ -1,5 +1,3 @@
-"use client";
-
 import { gql, useSuspenseQuery } from "@apollo/client";
 
 const countriesQuery = gql`query {

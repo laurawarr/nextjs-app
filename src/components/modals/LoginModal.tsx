@@ -11,8 +11,8 @@ import { TextInputForm } from "@/components/forms/TextInputForm";
 import { STORAGE_KEYS, useStorageValue } from "@/data/storage";
 
 export const LoginModal = () => {
-  const username = useStorageValue(STORAGE_KEYS.USERNAME)
-  const jobTitle = useStorageValue(STORAGE_KEYS.JOB_TITLE)
+  const { data: username } = useStorageValue(STORAGE_KEYS.USERNAME)
+  const { data: jobTitle } = useStorageValue(STORAGE_KEYS.JOB_TITLE)
 
   let formContent = null
   if (!username) {

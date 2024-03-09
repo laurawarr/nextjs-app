@@ -9,7 +9,7 @@ describe("LoginModal", () => {
 
     test("renders login form when username is not set", () => {
         // Mock the useStorageValue hook to return a username
-        useStorageValueMock.mockReturnValue("");
+        useStorageValueMock.mockReturnValue({ data: "" });
 
         render(<LoginModal />);
         const usernameInput = screen.getByLabelText("Username");
@@ -22,7 +22,7 @@ describe("LoginModal", () => {
     test("renders job title form when username is set but job title is not", () => {
         // Mock the useStorageValue hook to return a username
         useStorageValueMock.mockImplementation(
-            (key: string) => (key === "username" ? "testuser" : "")
+            (key: string) => ({ data: key === "username" ? "testuser" : "" })
         );
 
         render(<LoginModal />);
@@ -36,7 +36,7 @@ describe("LoginModal", () => {
     test("does not open modal when both username and job title are set", () => {
         // Mock the useStorageValue hook to return both username and job title
         useStorageValueMock.mockImplementation(
-            (key: string) => (key === "username" ? "testuser" : "developer")
+            (key: string) => ({ data: key === "username" ? "testuser" : "developer" })
         );
 
         render(<LoginModal />);

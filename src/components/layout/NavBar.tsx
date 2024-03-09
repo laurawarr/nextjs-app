@@ -18,8 +18,8 @@ import { useState } from "react";
 
 export const NavBar = () => {
   const [isProfileOpen, setProfileOpen] = useState(false);
-  const username = useStorageValue(STORAGE_KEYS.USERNAME);
-  const jobTitle = useStorageValue(STORAGE_KEYS.JOB_TITLE);
+  const { data: username } = useStorageValue(STORAGE_KEYS.USERNAME);
+  const { data: jobTitle } = useStorageValue(STORAGE_KEYS.JOB_TITLE);
   const { mutate: clearStorage } = useClearStorage();
 
   return (

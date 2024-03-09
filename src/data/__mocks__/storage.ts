@@ -3,7 +3,10 @@ export enum STORAGE_KEYS {
   JOB_TITLE = 'jobTitle'
 }
 
-export const useStorageValue = jest.fn((key: string) => `${key}.value`)
+export const useStorageValue = jest.fn((key: string) => ({
+  data: `${key}.value`,
+  isLoading: false
+}))
 
 export const useStorageSetter = jest.fn(() => ({ mutate: jest.fn() }))
 

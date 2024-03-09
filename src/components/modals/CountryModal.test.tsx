@@ -17,17 +17,21 @@ describe("CountryModal", () => {
         render(<CountryModal country={country} />);
 
         const modalHeader = screen.getByText("United States");
-        const countryCode = screen.getByText("Country Code: US");
-        const native = screen.getByText("Native: English");
-        const capital = screen.getByText("Capital: Washington, D.C.");
-        const currency = screen.getByText("Currency: USD");
-        const languages = screen.getByText("Languages: English");
-
         expect(modalHeader).toBeDefined();
-        expect(countryCode).toBeDefined();
-        expect(native).toBeDefined();
-        expect(capital).toBeDefined();
-        expect(currency).toBeDefined();
-        expect(languages).toBeDefined();
+
+        const countryCode = screen.getByText("Country Code");
+        expect(countryCode.parentElement?.innerHTML).toContain("US");
+
+        const native = screen.getByText("Native");
+        expect(native.parentElement?.innerHTML).toContain("English");
+
+        const capital = screen.getByText("Capital");
+        expect(capital.parentElement?.innerHTML).toContain("Washington, D.C.");
+
+        const currency = screen.getByText("Currency");
+        expect(currency.parentElement?.innerHTML).toContain("USD");
+
+        const languages = screen.getByText("Languages");
+        expect(languages.parentElement?.innerHTML).toContain("English");
     });
 });

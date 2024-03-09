@@ -5,7 +5,7 @@ import { Link } from "@chakra-ui/next-js";
 import { STORAGE_KEYS, useStorageValue } from "@/data/storage";
 
 export default function Home() {
-  const username = useStorageValue(STORAGE_KEYS.USERNAME);
+  const { data: username } = useStorageValue(STORAGE_KEYS.USERNAME);
 
   return (
     <Flex justify="center" align="center" direction="column" py={10}>

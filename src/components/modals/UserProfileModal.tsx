@@ -10,7 +10,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { TextInputForm } from "@/components/forms/TextInputForm";
-import { STORAGE_KEYS, useStorageValue } from "@/data/storage";
+import { STORAGE_KEYS } from "@/data/storage";
 
 type UserProfileModalProps = {
   isOpen?: boolean;

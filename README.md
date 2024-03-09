@@ -12,14 +12,18 @@ npm run dev
 ```
 3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Testing
+### Testing
 Run unit tests with the following command:
 ```
 npm run test
 ```
 
-## Deploy on Vercel
+### Building
+To create a production build, run the following:
+```
+npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Deploying
+By default all updates to main will be deployed to Vercel.
+See the deployed app at: https://nextjs-app-laurawarr.vercel.app

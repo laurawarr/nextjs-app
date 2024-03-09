@@ -41,14 +41,13 @@ export const CountryModal = ({
             </ModalHeader>
 
             <ModalBody pb={6}>
-              <Text fontSize="md">Country Code: {country.code}</Text>
-              <Text fontSize="md">Native: {country.native}</Text>
-              <Text fontSize="md">Capital: {country.capital}</Text>
-              <Text fontSize="md">Currency: {country.currency}</Text>
-              <Text fontSize="md">Languages: {
+              <TextProperty label="Country Code" value={country.code} />
+              <TextProperty label="Native" value={country.native} />
+              <TextProperty label="Capital" value={country.capital} />
+              <TextProperty label="Currency" value={country.currency} />
+              <TextProperty label="Languages" value={
                 country.languages.map(({ name }) => name).join(', ')
-              }
-              </Text>
+              } />
             </ModalBody>
           </>
         )}
@@ -56,3 +55,9 @@ export const CountryModal = ({
     </Modal>
   )
 }
+
+const TextProperty = ({ label, value }: { label: string, value: string }) => (
+  <Text fontSize="md" fontWeight={400}>
+    <b>{label}</b>: {value || 'Unknown'}
+  </Text>
+)
