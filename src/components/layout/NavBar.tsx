@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { usePathname } from "next/navigation";
 import {
   Avatar,
   Box,
@@ -14,7 +16,11 @@ import {
 import { Link } from "@chakra-ui/next-js";
 import { useStorageValue, useClearStorage, STORAGE_KEYS } from "@/data/storage";
 import { UserProfileModal } from "@/components/modals/UserProfileModal";
-import { useState } from "react";
+
+const NAV_LINKS = [
+  { label: "Home", href: "/" },
+  { label: "Information", href: "/information" }
+];
 
 export const NavBar = () => {
   const [isProfileOpen, setProfileOpen] = useState(false);
@@ -35,10 +41,7 @@ export const NavBar = () => {
         boxShadow="md"
         bgColor="white"
       >
-        <Box mx={2}>
-          <Link href="/" mr={3}>Home</Link>
-          <Link href="/information">Information</Link>
-        </Box>
+        <NavLinks />
 
         <Menu>
           <MenuButton as={Button}>
@@ -67,4 +70,22 @@ export const NavBar = () => {
       </Flex>
     </>
   );
+}
+
+const NavLinks = () => {
+  const pathname = usePathname();
+  return (
+    <Box mx={2}>
+      {NAV_LINKS.map((link) => (
+        <Link
+          key={link.label}
+          href={link.href}
+          mr={3}
+          fontWeight={pathname === link.href ? 600 : 500}
+        >
+          {link.label}
+        </Link>
+      ))}
+    </Box>
+  )
 }
